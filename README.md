@@ -1,6 +1,6 @@
 # Demystifying Go Concurrency
 
-Welcome to the GopherCon Europe workshop on Go concurrency.
+Welcome to the Golab workshop on Go concurrency.
 
 In this workshop, you’ll work through a series of hands-on exercises covering:
 - goroutines
