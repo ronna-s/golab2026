@@ -1,6 +1,6 @@
 module github.com/ronna-s/golab2026
 
-go 1.26.3
+go 1.27.3
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

@@ -11,7 +11,7 @@ In this workshop, you’ll work through a series of hands-on exercises covering:
 
 Before starting, make sure you have:
 
-- Go `1.26` or newer
+- Go `1.27` or newer
 - Git
 - A terminal and editor/IDE of your choice
 
