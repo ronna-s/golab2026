@@ -23,5 +23,5 @@ func DoLeak() {
 func main() {
 	DoLeak()
 	DoNoLeak()
-	log.Fatal(http.ListenAndServe("localhost:6060", nil))
+	log.Fatal(http.ListenAndServe("localhost:6061", nil))
 }

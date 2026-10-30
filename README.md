@@ -21,8 +21,8 @@ Clone the repositories (we will switch between them during the class):
 
 ```bash
 git clone https://github.com/jba/concurrency-workshop
-git clone https://github.com/ronna-s/gceu2026
-cd gceu2026
+git clone https://github.com/ronna-s/golab2026
+cd golab2026
 ```
 
 Verify your environment:

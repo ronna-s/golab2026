@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ronna-s/gceu2026/lessons/l1-goroutines/fileaggregator/fileservice"
+	"github.com/ronna-s/golab2026/lessons/l1-goroutines/fileaggregator/fileservice"
 )
 
 type Client interface {

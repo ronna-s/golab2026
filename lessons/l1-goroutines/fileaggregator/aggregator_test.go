@@ -7,7 +7,7 @@ import (
 	"testing/synctest"
 	"time"
 
-	"github.com/ronna-s/gceu2026/lessons/l1-goroutines/fileaggregator/fileservice"
+	"github.com/ronna-s/golab2026/lessons/l1-goroutines/fileaggregator/fileservice"
 	"github.com/stretchr/testify/assert"
 )
 
