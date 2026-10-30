@@ -5,32 +5,24 @@ import (
 )
 
 func BenchmarkMixed(b *testing.B) {
-	b.Run("mutex", func(b *testing.B) {
-		var i Incr
+	cases := []struct {
+		name    string
+		readOp  func(*Incr) int64
+		writeOp func(*Incr)
+	}{
+		{name: "mutex", readOp: (*Incr).ReadMutex, writeOp: (*Incr).IncrMutex},
+		{name: "rwmutex", readOp: (*Incr).ReadRWMutex, writeOp: (*Incr).IncrRWMutex},
+		{name: "atomic", readOp: (*Incr).ReadAtomic, writeOp: (*Incr).IncrAtomic},
+	}
 
-		b.RunParallel(func(pb *testing.PB) {
-			op := 0
-			_ = op // remove me...
-			_ = i  // remove me...
+	for _, tv := range cases {
+		b.Run(tv.name, func(b *testing.B) {
+			var i Incr
+			b.RunParallel(func(pb *testing.PB) {
+				op := 0
+				_ = op // remove me...
+				_ = i  // remove me...
+			})
 		})
-	})
-
-	b.Run("rwmutex", func(b *testing.B) {
-		var i Incr
-
-		b.RunParallel(func(pb *testing.PB) {
-			op := 0
-			_ = op // remove me...
-			_ = i  // remove me...
-		})
-	})
-	b.Run("atomic", func(b *testing.B) {
-		var i Incr
-
-		b.RunParallel(func(pb *testing.PB) {
-			op := 0
-			_ = op // remove me...
-			_ = i  // remove me...
-		})
-	})
+	}
 }
