@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -55,7 +56,10 @@ func main() {
 		time.Sleep(time.Second * 1)
 		l.Close()
 	}()
-	log.Fatal(Serve(l, HandleConnection))
+	err = Serve(l, HandleConnection)
+	if err != nil && !errors.Is(err, net.ErrClosed) {
+		log.Fatal(err)
+	}
 }
 
 const output = "        ,_---~~~~~----._\n  _,,_,*^____      _____``*g*\\\"*,\n / __/ /'     ^.  /      \\ ^@q   f\n[  @f | @))    |  | @))   l  0 _/\n \\`/   \\~____ / __ \\_____/    \\\n  |           _l__l_           I\n  }          [______]           I\n  ]            | | |            |\n  ]             ~ ~             |\n  |                            |\n   |                           |"
