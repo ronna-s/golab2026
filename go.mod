@@ -1,4 +1,4 @@
-module github.com/ronna-s/gceu2026
+module github.com/ronna-s/golab2026
 
 go 1.26.3
 
