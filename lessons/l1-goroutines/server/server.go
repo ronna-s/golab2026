@@ -11,18 +11,17 @@ import (
 
 func Serve(l net.Listener, handle func(net.Conn) error) error {
 	var (
-		wg  sync.WaitGroup
 		err error
+		wg  sync.WaitGroup
 	)
 	for {
-		conn, acceptErr := l.Accept()
-		if acceptErr != nil {
-			err = acceptErr
+		var conn net.Conn
+		if conn, err = l.Accept(); err != nil {
 			break
 		}
 		wg.Go(func() {
-			if err := handle(conn); err != nil {
-				log.Println(err)
+			if handleErr := handle(conn); handleErr != nil {
+				log.Println(handleErr)
 			}
 		})
 	}
